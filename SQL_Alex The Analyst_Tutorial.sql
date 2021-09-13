@@ -304,6 +304,37 @@ FROM #temp_emp2
 
 
 
+/*Create Global Table with two ## */
+CREATE TABLE ##all_female_employees (
+EmployeeID int,
+FirstName varchar(50),
+LastName varchar(50),
+Age int,
+Gender varchar(50)
+)
+
+INSERT INTO ##all_female_employees
+SELECT*
+FROM EmployeeDemographics
+WHERE Gender = 'F'
+
+SELECT*
+FROM ##all_female_employees
+
+
+
+/*Select INTO*/ 
+-- It is same function as creating temperary table by using #
+SELECT *
+INTO testing
+FROM EmployeeDemographics
+WHERE Gender = 'M'
+
+SELECT *
+FROM testing
+
+
+
 /*String Functions: TRIM, LTRIM, RTRIM, Replace, Substring, Upper, Lower*/
 CREATE TABLE EmployeeErrors(
 EmployeeID varchar(50),
